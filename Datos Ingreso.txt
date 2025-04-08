@@ -1,0 +1,4 @@
+Datos de Administrador Venta Productos
+
+Usuario: VentaProductos
+Contraseña: VentaProductos123
