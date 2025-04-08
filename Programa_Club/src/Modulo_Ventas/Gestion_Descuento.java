@@ -340,9 +340,9 @@ public class Gestion_Descuento extends javax.swing.JFrame {
                     .addComponent(datechooser_FechaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
                 .addComponent(Btn_Guardar)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(Btn_Modificar)
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addComponent(Btn_Eliminar)
                 .addGap(18, 18, 18)
                 .addComponent(Btn_Aplicar)
@@ -433,7 +433,12 @@ public class Gestion_Descuento extends javax.swing.JFrame {
             objetoDescuento.MostrarDescuentos(TablaDescuentos);
         }
         TablaDescuentos.clearSelection();
-
+        
+        JTextField_ID.setText("");
+        JTextField_Descuento.setText("");
+        datechooser_FechaFinal.setDate(null);
+        datechooser_FechaInicio.setDate(null);
+                
     }//GEN-LAST:event_Btn_GuardarActionPerformed
     
     //Boton Modificar
@@ -460,6 +465,10 @@ public class Gestion_Descuento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "No se ha realizado ningún cambio para modificar.", "Advertencia", JOptionPane.WARNING_MESSAGE);
         }
         TablaDescuentos.clearSelection();
+        JTextField_ID.setText("");
+        JTextField_Descuento.setText("");
+        datechooser_FechaFinal.setDate(null);
+        datechooser_FechaInicio.setDate(null);
     }//GEN-LAST:event_Btn_ModificarActionPerformed
     
     //Boton Eliminar
@@ -485,6 +494,11 @@ public class Gestion_Descuento extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Eliminación cancelada.", "Acción cancelada", JOptionPane.INFORMATION_MESSAGE);
         }
         TablaDescuentos.clearSelection();
+        JTextField_ID.setText("");
+        
+        JTextField_Descuento.setText("");
+        datechooser_FechaFinal.setDate(null);
+        datechooser_FechaInicio.setDate(null);
     }//GEN-LAST:event_Btn_EliminarActionPerformed
     
     //Boton Volver

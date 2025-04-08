@@ -327,7 +327,7 @@ public class Ventana_FinalizarCompra extends javax.swing.JFrame {
         String envioPrice = "0";
         ConexionBDD objetoConexion = new ConexionBDD();
         //CONSULTA PARA Mostrar Datos del Producto Elejido===========================================================================
-        String sql= "SELECT p.ProductoID, p.Nombre, p.Precio AS Precio, p.Stock, c.NombreCategoria, COALESCE(d.CantidadDescuento, 'Ningun') AS Descuento, COALESCE(dp.PrecioFinal, p.Precio) AS PrecioFinal FROM Productos p LEFT JOIN DescuentoProductos dp ON p.ProductoID = dp.ProductoID LEFT JOIN Descuento d ON dp.DescuentoID = d.DescuentoID AND CURDATE() BETWEEN d.Fecha_Inicio AND d.Fecha_Final LEFT JOIN Categorias c ON p.CategoriaID = c.CategoriaID WHERE p.ProductoID = ?;";
+        String sql= "SELECT p.ProductoID, p.Nombre, p.Precio AS Precio, p.Stock, c.NombreCategoria, COALESCE(CASE WHEN CURDATE() BETWEEN d.Fecha_Inicio AND d.Fecha_Final THEN d.CantidadDescuento ELSE 'Ningun' END, 'Ningun') AS Descuento, COALESCE(CASE WHEN CURDATE() BETWEEN d.Fecha_Inicio AND d.Fecha_Final THEN dp.PrecioFinal ELSE p.Precio END, p.Precio) AS PrecioFinal FROM Productos p LEFT JOIN DescuentoProductos dp ON p.ProductoID = dp.ProductoID LEFT JOIN Descuento d ON dp.DescuentoID = d.DescuentoID LEFT JOIN Categorias c ON p.CategoriaID = c.CategoriaID WHERE p.ProductoID = ?;";
         //CONSULTA PARA MOSTRAR PRECIO DEL ENVIO=====================================================================================
         String sql2 = "SELECT EnvioID, PrecioEnvio FROM Envio WHERE Activo=1;"; 
         //CONSULTA PARA MOSTRAR LA DIRECCION DEL USUARIO=============================================================================

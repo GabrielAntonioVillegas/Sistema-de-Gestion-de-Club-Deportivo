@@ -92,20 +92,7 @@ public class Funciones_Usuario {
         paramTablaProductos.setModel(modelo);
 
         // Consulta SQL para obtener información de Producto
-        String sql = "SELECT p.ProductoID, " +
-                     "       p.Nombre, " +
-                     "       p.Stock, " +
-                     "       c.NombreCategoria, " +
-                     "       COALESCE(dp.PrecioFinal, p.Precio) AS PrecioFinal " +
-                     "FROM Productos p " +
-                     "LEFT JOIN DescuentoProductos dp " +
-                     "    ON p.ProductoID = dp.ProductoID " +
-                     "LEFT JOIN Descuento d " +
-                     "    ON dp.DescuentoID = d.DescuentoID " +
-                     "    AND CURDATE() BETWEEN d.Fecha_Inicio AND d.Fecha_Final " +
-                     "LEFT JOIN Categorias c " +
-                     "    ON p.CategoriaID = c.CategoriaID " +
-                     "WHERE p.Estado = 1;";
+        String sql = "SELECT p.ProductoID, p.Nombre, p.Stock, c.NombreCategoria, COALESCE(CASE WHEN CURDATE() BETWEEN d.Fecha_Inicio AND d.Fecha_Final THEN dp.PrecioFinal ELSE p.Precio END, p.Precio) AS PrecioFinal FROM Productos p LEFT JOIN DescuentoProductos dp ON p.ProductoID = dp.ProductoID LEFT JOIN Descuento d ON dp.DescuentoID = d.DescuentoID LEFT JOIN Categorias c ON p.CategoriaID = c.CategoriaID WHERE p.Estado = 1;";
 
 
         String[] datos = new String[5];

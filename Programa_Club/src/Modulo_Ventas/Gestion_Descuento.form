@@ -188,9 +188,9 @@
                   </Group>
                   <EmptySpace pref="44" max="32767" attributes="0"/>
                   <Component id="Btn_Guardar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="Btn_Modificar" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                   <Component id="Btn_Eliminar" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="Btn_Aplicar" min="-2" max="-2" attributes="0"/>

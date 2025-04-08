@@ -1,5 +1,6 @@
 package Modulo_Ventas;
 
+import ModuloUsuarios1.InicioAdmin;
 import programa_club.Main;
 import Modulo_Ventas.Gestion_Productos;
 import Modulo_Ventas.Gestion_Categorias;
@@ -13,8 +14,9 @@ import Modulo_Ventas.Gestion_Pedidos;
 public class Pantalla_Ventas extends javax.swing.JFrame {
     //Declaracion de variables
     private final VerificarBotonMenu consultasBDD = new VerificarBotonMenu();
-    //Constructor
+    private int IDAdministrador = 0;
     public Pantalla_Ventas() {
+        
         initComponents();
         verificarBotones();
     }    
@@ -172,10 +174,9 @@ public class Pantalla_Ventas extends javax.swing.JFrame {
 
     //Boton volver al menu principal
     private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
-        Main vM = new Main();
-        this.setVisible(false);
-        vM.setLocationRelativeTo(null);
-        vM.setVisible(true);
+        InicioAdmin inicioadmin = new InicioAdmin(IDAdministrador);
+        inicioadmin.setVisible(true);
+        dispose();
     }//GEN-LAST:event_VolverActionPerformed
 
     //Boton ingresar al gestion de productos
